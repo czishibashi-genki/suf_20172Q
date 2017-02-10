@@ -101,6 +101,7 @@ S3に入っているデータを標準SQLを使って分析することができ
 ### ユースケース
 S3にとにかく何も考えずにデータを投げ込んでおいて、Athenaで吸い上げたデータをデータソースとしてQuickSightで表示する。
 <img src="https://github.com/czsuganuma-koji/suf_20172Q/blob/master/athena_quicksight_usecase.jpg">
+<img src="https://github.com/czsuganuma-koji/suf_20172Q/blob/master/quicksight_overview.jpg">
 
 ---
 
