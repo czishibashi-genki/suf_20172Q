@@ -66,8 +66,8 @@
 |アクセスコントロールタイプ|AWSアカウントレベルの制御|IAMユーザレベルの制御|形式|
 |:--|:--:|:--:|:--:|
 |ACL|○|☓|XML|
-|Bucket Policy|○|☓|JSON|
-|IAM Policy|○|☓|JSON|
+|Bucket Policy|○|○|JSON|
+|IAM Policy|☓|○|JSON|
 
 ### リソースの指定
 
