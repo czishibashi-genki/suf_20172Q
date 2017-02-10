@@ -1,5 +1,7 @@
 # suf_20172Q
 
+# Amazon Athenaについて
+
 ## 概要
 - 標準的なSQLを使ってS3のデータを直接分析
 - サーバレス: インフラ管理の必要なし
@@ -39,6 +41,29 @@
 ## 機能
 - 任意の正規表現を使って、Athenaにテキスト内の各行をどのように解釈するかを指定することができる
 - CSV, TSV, JSON形式を処理する場合には、正規表現は必要無い
+
+# S3のアクセスコントロールについて
+
+## アクセスコントロールの種類
+
+- Access Control List (ACL)
+ - Bucket/Object単位でアクセス権を管理
+ - AWSマネコンから制御対象を選択して、Properties > Permissionsで設定
+
+- Bucket Policy
+ - Bucket/Object単位でアクセス権を管理
+ - AWSマネコンから制御対象を選択して、Properties > Permissions > Add(Edit) Bucket Policyで設定
+
+- IAM Policy
+ - S3を含むAWSリソースへのアクセス権を、IAMリソース(IAMユーザ, IAMグループ, IAMロール)単位で管理
+ - 「誰が」「どのAWSサービスの」「どのリソースに対して」「どんな操作を」「許可する(許可しない)」などを記述
+ - AWSマネコンからIAMのホームディレクトリでユーザ/グループ/ロールのポリシーを設定
+
+|アクセスコントロールタイプ|AWSアカウントレベルの制御|IAMユーザレベルの制御|形式|
+|:--|:--:|:--:|:--:|
+|ACL|○|☓|XML|
+|Bucket Policy|○|☓|JSON|
+|IAM Policy|○|☓|JSON|
 
 # 稟議申請内容
 
