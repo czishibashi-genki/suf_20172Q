@@ -42,6 +42,8 @@
 - 任意の正規表現を使って、Athenaにテキスト内の各行をどのように解釈するかを指定することができる
 - CSV, TSV, JSON形式を処理する場合には、正規表現は必要無い
 
+---
+
 # S3のアクセスコントロールについて
 
 ## アクセスコントロールの種類
@@ -53,17 +55,37 @@
 - Bucket Policy
  - Bucket/Object単位でアクセス権を管理
  - AWSマネコンから制御対象を選択して、Properties > Permissions > Add(Edit) Bucket Policyで設定
+ - AWSアカウントやバケットにアクセス権を設定したい場合に利用
 
 - IAM Policy
  - S3を含むAWSリソースへのアクセス権を、IAMリソース(IAMユーザ, IAMグループ, IAMロール)単位で管理
  - 「誰が」「どのAWSサービスの」「どのリソースに対して」「どんな操作を」「許可する(許可しない)」などを記述
  - AWSマネコンからIAMのホームディレクトリでユーザ/グループ/ロールのポリシーを設定
+ - ユーザにアクセス権を設定したい場合に利用
 
 |アクセスコントロールタイプ|AWSアカウントレベルの制御|IAMユーザレベルの制御|形式|
 |:--|:--:|:--:|:--:|
 |ACL|○|☓|XML|
 |Bucket Policy|○|☓|JSON|
 |IAM Policy|○|☓|JSON|
+
+## リソースの指定
+
+- バケットポリシーやIAMポリシーで、ある Action を許可/拒否する場合、対象 Resource を ARN で指定する。
+- バケットに対する Action は Resource としてバケットの ARN(arn:aws:s3:::bucket) を指定する。 
+- オブジェクトに対する Action は Resource としてオブジェクトの ARN(arn:aws:s3:::bucket/*) を指定する。
+
+## アクセス許可の種類
+
+- READ
+- WRITE
+- READ_ACP
+- WRITE_ACP
+- FULL_CONTROL
+
+※ ACP: ACLへのアクセス権
+
+---
 
 # 稟議申請内容
 
