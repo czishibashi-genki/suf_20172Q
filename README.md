@@ -176,7 +176,7 @@ S3にとにかく何も考えずにデータを投げ込んでおいて、Athena
 
 ## 参考サイト
 
-- ![AWS IAMポリシーを理解する](http://dev.classmethod.jp/cloud/aws-iam-policy/)
+- [AWS IAMポリシーを理解する](http://dev.classmethod.jp/cloud/aws-iam-policy/)
 
 ---
 
