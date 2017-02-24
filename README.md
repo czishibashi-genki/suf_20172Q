@@ -184,7 +184,9 @@ S3にとにかく何も考えずにデータを投げ込んでおいて、Athena
 
 - [Amazon Athena – サーバーレスのインタラクティブなクエリサービス – AWS](https://aws.amazon.com/jp/athena/)
 - [AWS IAMポリシーを理解する](http://dev.classmethod.jp/cloud/aws-iam-policy/)
-- [【新機能】Amazon QuickSightがAmazon Athenaをサポート！](http://dev.classmethod.jp/cloud/aws/amazon-quicksight-supports-amazon-athena/)
+- [Setting Up — User Guide - AWS Documentation - Amazon.com](http://docs.aws.amazon.com/athena/latest/ug/setting-up.html)
+- [Amazon Athena Setup](https://redash.io/help/data-sources/amazon-athena.html)
+- [Amazon QuickSightがAmazon Athenaをサポート！](http://dev.classmethod.jp/cloud/aws/amazon-quicksight-supports-amazon-athena/)
 
 ---
 
