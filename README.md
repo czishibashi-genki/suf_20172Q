@@ -117,47 +117,53 @@
 
 ---
 
-## AmazonAthenaFullAccessのポリシードキュメント
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [ "athena:*" ],
-      "Resource": [ "*" ]
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetBucketLocation",
-        "s3:GetObject",
-        "s3:ListBucket",
-        "s3:ListBucketMultipartUploads",
-        "s3:ListMultipartUploadParts",
-        "s3:AbortMultipartUpload",
-        "s3:CreateBucket",
-        "s3:PutObject"
-      ],  
-      "Resource": [
-        "arn:aws:s3:::aws-athena-query-results-*"
-      ]   
-    }  
-  ] 
-}
-```
-
----
-
 ### Athenaの運用に関する考察
+
+#### 運用ポリシー
 
 IAM Policyを利用して、一般ユーザ(Athenaを利用しないユーザ)とAthena利用ユーザのアクセスコントロールを行う。
 
 |[誰が]|[どのAWSサービスの]|[どのリソースに対して]|[どんな操作を]|[許可する(許可しない)]|
 |:--|:--:|:--:|:--:|:--:|
 |一般ユーザ|Athena|-|すべての操作|許可しない|
-|Athena利用ユーザ|Athena|S3: 対象プロダクトのBucket|データ定義と取得の操作(CREATE, SELECT)|許可する|
+|Athena利用ユーザ|Athena, S3|対象S3 Bucket|Athenaのすべての操作, 対象S3 bucketのデータ取得|許可する|
+
+#### 具体的な施策
+
+Athena利用ユーザに対して、Athenaのすべての操作と対象S3 bucketのデータ取得を許可するIAMロールを付与する。なお、一般ユーザに対しては、このIAMロールを付与しない。
+
+- S3に関するIAM Policy
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::target-bucket/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::target-bucket"
+            ]
+        }
+    ]
+}
+```
+
+- Athenaに関するIAM Policy
+
+`AmazonAthenaFullAccess Managed Policy`(公式)を利用する。
 
 ---
 
