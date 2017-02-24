@@ -163,7 +163,7 @@ Athena利用ユーザに対して、Athenaのすべての操作と対象S3 bucke
 
 - Athenaに関するIAM Policy
 
-`AmazonAthenaFullAccess Managed Policy`(公式)を利用する。
+`AmazonAthenaFullAccess Managed Policy`(AWS 管理ポリシー)を利用する。
 
 ---
 
