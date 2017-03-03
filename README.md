@@ -170,7 +170,8 @@ IAM Policyを利用して、一般ユーザ(Athenaを利用しないユーザ)�
 ### 検証したこと
 
 - 検証用ユーザ作成
-- Schema作成(fox, hadoho)
+- 検証用S3 Bucket作成(yamato, hadoho)
+- Schema作成(yamato, hadoho)
 - サンプルデータ投入(elb_logs)
 - IAM Policy作成、担当
 
@@ -179,8 +180,8 @@ IAM Policyを利用して、一般ユーザ(Athenaを利用しないユーザ)�
 |Athena: ☓, S3: ☓|☓|☓|☓|☓|
 |Athena: ○, S3: ☓|☓|☓|☓|☓|
 |Athena: ☓, S3: ○|☓|☓|☓|☓|
-|Athena: ○, S3(yamato): ○|☓|☓|☓|○(yamato)|
-|Athena: ○, S3(hadoho): ○|☓|☓|☓|○(hadoho)|
+|Athena: ○, S3(yamato): ○|☓|☓|☓|○(yamato), ☓(hadoho)|
+|Athena: ○, S3(hadoho): ○|☓|☓|☓|○(hadoho), ☓(yamato)|
 
 ※ Athena: ○ -> Run Query, S3: ○ -> Read Only
 
