@@ -133,9 +133,8 @@ IAM Policyを利用して、一般ユーザ(Athenaを利用しないユーザ)�
 - Athenaのすべての操作と対象S3 bucketのデータ取得を許可するIAMグループを作成し、Athena利用ユーザを入れる。なお、一般ユーザはこのグループには入れない。
 - AthenaではRead Onlyとする。
 
-- S3に関するIAM Policy
-
-```
+##### S3に関するIAM Policy
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -162,18 +161,19 @@ IAM Policyを利用して、一般ユーザ(Athenaを利用しないユーザ)�
 }
 ```
 
-- Athenaに関するIAM Policy
-
+##### Athenaに関するIAM Policy
 `AmazonAthenaFullAccess Managed Policy`(AWS 管理ポリシー)を利用する。
 
 
-### 検証したこと
+#### 検証したこと
 
 - 検証用ユーザ作成
 - 検証用S3 Bucket作成(yamato, hadoho)
 - Schema作成(yamato, hadoho)
 - サンプルデータ投入(elb_logs)
 - IAM Policy作成、担当
+
+#### 検証結果
 
 |権限/処理|INSERT|UPDATE|DELETE|SELECT|
 |:--|:--:|:--:|:--:|:--:|
@@ -184,6 +184,11 @@ IAM Policyを利用して、一般ユーザ(Athenaを利用しないユーザ)�
 |Athena: ○, S3(hadoho): ○|☓|☓|☓|○(hadoho), ☓(yamato)|
 
 ※ Athena: ○ -> Run Query, S3: ○ -> Read Only
+
+#### 検証結果まとめ
+
+アクセス制御に関してはIAM権限(S3, Athenaポリシー)による管理で可能である。
+巨大なクエリを制限するような仕組みは現状考えられていない。
 
 ---
 
