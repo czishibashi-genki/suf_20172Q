@@ -14,11 +14,11 @@
 - 分散SQLエンジンPestro, Apache Hiveが利用可能
 - クエリを実行する時にスキーマを定義(schema-on-read)
 - Apache Hive方式のデータパーティション
- - 月、週、日、時間、または顧客ID、もしくはそれらすべてを使って、パーティションすることができる
+  - 月、週、日、時間、または顧客ID、もしくはそれらすべてを使って、パーティションすることができる
 
 ### 課金
 - クエリ毎にスキャンしたデータ量に応じて課金
- - 1TBあたり5USD
+  - 1TBあたり5USD
 - スキャン以外のステートメント、正常に実行されなかったクエリに対しては課金されない
 - ストレージ、リクエスト、データ転送に対して S3 の標準料金が発生
 - クエリごとのスキャンされたデータ量は、Athenaコンソールで確認可
@@ -29,13 +29,13 @@
 
 ### 作業
 - テーブルの作成（### これだけでデータをクエリすることが可能 ###）
- - 成功すると、テーブルとスキーマがデータカタログに現れる
- - Athenaは内部にデータカタログを持っていて、テーブル、データベース、パーティションに関する情報を保存するために使われている
+  - 成功すると、テーブルとスキーマがデータカタログに現れる
+  - Athenaは内部にデータカタログを持っていて、テーブル、データベース、パーティションに関する情報を保存するために使われている
 - [Option] Athenaで使われる形式でデータをパーティション
- - スキーマ定義をパーティションを含む様に変更
- - パーティションのメタデータをAthenaにロード
+  - スキーマ定義をパーティションを含む様に変更
+  - パーティションのメタデータをAthenaにロード
 - [Option] Apache Parquetなどの列志向フォーマットに変換
- - https://github.com/awslabs/aws-big-data-blog/tree/master/aws-blog-spark-parquet-conversion
+  - https://github.com/awslabs/aws-big-data-blog/tree/master/aws-blog-spark-parquet-conversion
 - クエリを流す
 
 ### 機能
@@ -55,19 +55,19 @@
 |IAM Policy|☓|○|JSON|
 
 - Access Control List (ACL)
- - Bucket/Object単位でアクセス権を管理
- - AWSマネコンから制御対象を選択して、Properties > Permissionsで設定
+  - Bucket/Object単位でアクセス権を管理
+  - AWSマネコンから制御対象を選択して、Properties > Permissionsで設定
 
 - Bucket Policy
- - Bucket/Object単位でアクセス権を管理
- - AWSマネコンから制御対象を選択して、Properties > Permissions > Add(Edit) Bucket Policyで設定
- - AWSアカウントやバケットにアクセス権を設定したい場合に利用
+  - Bucket/Object単位でアクセス権を管理
+  - AWSマネコンから制御対象を選択して、Properties > Permissions > Add(Edit) Bucket Policyで設定
+  - AWSアカウントやバケットにアクセス権を設定したい場合に利用
 
 - IAM Policy
- - S3を含むAWSリソースへのアクセス権を、IAMリソース(IAMユーザ, IAMグループ, IAMロール)単位で管理
- - [誰が] [どのAWSサービスの] [どのリソースに対して] [どんな操作を] [許可する(許可しない)]などを記述
- - AWSマネコンからIAMのホームディレクトリでユーザ/グループ/ロールのポリシーを設定
- - ユーザにアクセス権を設定したい場合に利用
+  - S3を含むAWSリソースへのアクセス権を、IAMリソース(IAMユーザ, IAMグループ, IAMロール)単位で管理
+  - [誰が] [どのAWSサービスの] [どのリソースに対して] [どんな操作を] [許可する(許可しない)]などを記述
+  - AWSマネコンからIAMのホームディレクトリでユーザ/グループ/ロールのポリシーを設定
+  - ユーザにアクセス権を設定したい場合に利用
 
 ### リソースの指定
 
